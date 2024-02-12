@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   firstStandardData: any[] = [];
   selectedStandard!: string;
   students: any;
+isVisible: any;
 
   constructor(private studentService: StudentService) { }
   ngOnInit(): void { }

@@ -1,22 +1,31 @@
-<select [(ngModel)]="selectedStandard" (change)="onStandardChange()">
-  <option value="1">First Standard</option>
-  <option value="2">Second Standard</option>
-</select>
+<div class="container mx-auto flex justify-center items-center h-screen bg-blue-300">
+  <div class="flex flex-col items-center">
+    <select [(ngModel)]="selectedStandard" (change)="onStandardChange()"
+            class="border-spacing-2 px-6 py-4 mb-4 bg-blue-500 text-white">
+      <option [ngValue]="" disabled [attr.selected]="!selectedStandard ? true : null">SELECT</option>
+      <option value="1">First Standard</option>
+      <option value="2">Second Standard</option>
+    </select>
 
-<table *ngIf="students">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Standard</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students">
-      <td>{{ student.name }}</td>
-      <td>{{ student.className }}</td>
-      <td>{{ student.registerNumber }}</td>
-      <td>{{ student.mobileNumber }}</td>
-      <td>{{ student.standard }}</td>
-    </tr>
-  </tbody>
-</table>
+    <div class="overflow-x-auto">
+      <table class="border border-black-500 bg-white">
+        <thead>
+          <tr>
+            <th class="border border-gray-400 px-4 py-2">Name</th>
+            <th class="border border-gray-400 px-4 py-2">Register Number</th>
+            <th class="border border-gray-400 px-4 py-2">Mobile Number</th>
+            <th class="border border-gray-400 px-4 py-2">Standard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students" class="border border-gray-400">
+            <td class="border border-gray-400 px-4 py-2">{{ student.name }}</td>
+            <td class="border border-gray-400 px-4 py-2">{{ student.registerNumber }}</td>
+            <td class="border border-gray-400 px-4 py-2">{{ student.mobileNumber }}</td>
+            <td class="border border-gray-400 px-4 py-2">{{ student.standard }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
